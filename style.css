@@ -65,7 +65,7 @@
       width: 100%;
       height: 100vh;
       /* background: linear-gradient(135deg, #ffffff, #1c1d209c); */
-      background: url(Screenshot\ 2025-02-09\ 065821.png)center / cover;
+      background: url(Images/Screenshot\ 2025-02-09\ 065821.png)center / cover;
   }
   
   .navbar .links a:hover{
@@ -206,7 +206,7 @@
    padding: 12px 13px;
    /* background: linear-gradient(135deg, #111010, #1c1d209c); */
    border: 1px solid black;
-   background-image: url("Screenshot\ 2025-02-19\ 201002.png");
+   background-image: url("Images/Screenshot\ 2025-02-19\ 201002.png");
   }
   
   .login .formdetails {
