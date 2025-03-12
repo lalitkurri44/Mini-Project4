@@ -13,6 +13,7 @@
     />
     <link rel="stylesheet" href="style.css" />
     <title>First Page</title>
+
     <style>
       body {
         display: flex;
@@ -74,14 +75,21 @@
     <script src="script.js" defer></script>
   </head>
   <body>
+
+    <div class="head">
+            <video autoplay loop muted playsinline class="back-video">
+                <source src="Video.Guru_20250312_170436411.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
     <!-- header page  -->
 
     <header class="header">
       <nav class="navbar">
         <span class="menu-btn">&#9776;</span> 
         <a href="#" class="logo">
-          <img src="Images/Screenshot 2025-02-01 115709.png" alt="logo" />
-          <h2>Nakshatra website</h2>
+          <!-- <img src="Images/Screenshot 2025-02-01 115709.png" alt="logo" /> -->
+          <h2 class="bahu">Nakshatra website</h2>
         </a>
 
         <ul class="links">
@@ -93,7 +101,7 @@
           <li><a href="#"> More </a></li>
         </ul>
 
-        <button class="login-btn">Login</button>
+        <button class="login-btn  glow-button">Login</button>
       </nav>
     </header>
 
@@ -136,13 +144,13 @@
               <div class="input-box">
                 <input
                   class="inside"
-                  type="text"
+                  type="text" id="username"
                   placeholder="Enter your username"
                 />
               </div>
 
               <div class="input-box">
-                <input type="password" placeholder="Password" />
+                <input type="password" id="password" placeholder="Password" />
               </div>
 
               <div class="remember-forgot">
@@ -150,7 +158,7 @@
                 <a href="Forgot.html">Forgot Password?</a>
               </div>
 
-              <button type="button" class="btn">Login</button>
+              <button onclick="login()" type="button" class="btn">Login</button>
 
               <div class="register">
                 Create a new account?
@@ -257,5 +265,8 @@ Join now and be part of the ultimate sports experience! 🔥
         </div>
       </div>
     </div>
+
+    <script src="../js/script.js" defer></script>
+
   </body>
 </html>

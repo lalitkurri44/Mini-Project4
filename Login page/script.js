@@ -6,6 +6,20 @@ const hidePopupBtn = document.querySelector(".form-pop-up .close-btn");
 const formPopup = document.querySelector(".form-pop-up"); 
 const loginSignUpLinks = document.querySelectorAll(".form-box .register a");
 
+function login() {
+   let username = document.getElementById("username").value;
+   let password = document.getElementById("password").value;
+
+   if (username === "admin" && password === "12234") {
+       alert("Login successful!");
+       window.location.href = "../first/one.html"; // Redirect to one.html
+   } else {
+       alert("Invalid username or password!");
+   }
+}
+
+
+
 // Show menu
 menuBtn.addEventListener("click", () => {
    navbarMenu.classList.toggle("show-menu");
