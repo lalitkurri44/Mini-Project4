@@ -75,18 +75,17 @@
     <script src="script.js" defer></script>
   </head>
   <body>
-
     <div class="head">
-            <video autoplay loop muted playsinline class="back-video">
-                <source src="Video.Guru_20250312_170436411.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
+      <video autoplay loop muted playsinline class="back-video">
+        <source src="Video.Guru_20250312_170436411.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
     <!-- header page  -->
 
     <header class="header">
       <nav class="navbar">
-        <span class="menu-btn">&#9776;</span> 
+        <span class="menu-btn">&#9776;</span>
         <a href="#" class="logo">
           <!-- <img src="Images/Screenshot 2025-02-01 115709.png" alt="logo" /> -->
           <h2 class="bahu">Nakshatra website</h2>
@@ -101,7 +100,7 @@
           <li><a href="#"> More </a></li>
         </ul>
 
-        <button class="login-btn  glow-button">Login</button>
+        <button class="login-btn glow-button">Login</button>
       </nav>
     </header>
 
@@ -115,26 +114,7 @@
       <!-- login details -->
 
       <div class="form-box login">
-        <div class="formdetails">
-          <h2>Welcome back</h2>
-          <!-- <p class="ldetail">
-            Log in to manage events, matches, and venues with ease. 📍 Track
-            <br />
-            player stats, team performance, and rankings in real time. 📊 Stay
-            <br />
-            updated with live schedules, notifications, and announcements. 🔔
-            <br />
-            Plan your strategies and make smarter game decisions. 🎯 Discover
-            <br />
-            training sessions and exclusive athlete insights. 🏅 Connect with
-            <br />
-            coaches, teammates, and sports enthusiasts. 🤝 Experience a seamless
-            <br />
-            way to organize and participate in tournaments! 🚀 New here? Sign up
-            <br /> <br>
-            now and take your game to the next leve
-          </p> -->
-        </div>
+        
 
         <div class="form-content">
           <div class="dot1">
@@ -144,7 +124,8 @@
               <div class="input-box">
                 <input
                   class="inside"
-                  type="text" id="username"
+                  type="text"
+                  id="username"
                   placeholder="Enter your username"
                 />
               </div>
@@ -155,118 +136,25 @@
 
               <div class="remember-forgot">
                 <!-- <label><input type="checkbox" /> Remember me </label> -->
-                <a href="Forgot.html">Forgot Password?</a>
+                <!-- <a href="Forgot.html">Forgot Password?</a> -->
               </div>
+
+              <br>
 
               <button onclick="login()" type="button" class="btn">Login</button>
 
-              <div class="register">
-                Create a new account?
-                <a href="#" id="signup-link">Sign up</a>
-              </div>
+              
 
               <br />
 
-              <div class="btn-container">
-                <!-- Google Login Button -->
-                <button class="login-btn1 google">
-                  <img src="Images/Screenshot 2025-02-14 191943.png" alt="Google" />
-                  Google
-                </button>
-
-                <!-- Facebook Login Button -->
-                <button class="login-btn1 facebook">
-                  <img
-                    src="https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png"
-                    alt="Facebook"
-                  />
-                  Facebook
-                </button>
+              
               </div>
             </form>
           </div>
         </div>
       </div>
-
-      <!-- sign up details  -->
-
-      <div class="form-box Sign-up">
-        <div class="formdetails">
-          <h2 > Create your new account</h2>
-          <!-- <p class="sdetail">
-            Create an account to unlock your sports journey! 🚀
-            <br>
-Manage events, track matches, and find venues easily. 📍
-<br>
-Stay updated with schedules, stats, and rankings. 📊
-<br>
-Get real-time notifications and important updates. 🔔
-<br>
-Connect with players, coaches, and sports enthusiasts. 🤝
-<br>
-Plan your strategies and enhance your game! 🏅
-<br />
-training sessions and exclusive athlete insights. 🏅 Connect with
-<br />
-coaches, teammates, and sports enthusiasts. 🤝 Experience a seamless
-<br />
-<br> <br>
-Join now and be part of the ultimate sports experience! 🔥
-          </p> -->
-        </div>
-
-        <div class="form-content">
-          <div class="dot2">
-            <form action="">
-              <h2 style="text-align: center">Create Account</h2>
-              <div class="input-box">
-                <input
-                  class="inside"
-                  type="text"
-                  placeholder="Enter your name"
-                />
-              </div>
-
-              <div class="input-box">
-                <input
-                  class="inside"
-                  type="text"
-                  placeholder="Enter your email"
-                />
-              </div>
-
-              <div class="input-box">
-                <input
-                  class="inside"
-                  type="text"
-                  placeholder="Enter your password"
-                />
-              </div>
-
-              <div class="input-box">
-                <input type="password" placeholder="Enter your mobile no" />
-              </div>
-
-              <div class="remember-forgot">
-                <label><input type="checkbox" /> Remember me </label>
-                <!-- <a href="/Forgot.html">Forgot Password?</a> -->
-              </div>
-
-              <button type="button" class="btn" onclick="openpage()">
-                Sign up
-              </button>
-
-              <div class="register">
-                Already have an account?
-                <a href="#" id="login-link"> login </a>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
+</div>
 
     <script src="../js/script.js" defer></script>
-
   </body>
 </html>

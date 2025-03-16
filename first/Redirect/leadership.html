@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #ffffff, #fad0c4);
+        }
+        .leaderboard {
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            gap: 20px;
+            width: 90%;
+            max-width: 900px;
+        }
+        .player {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            transition: transform 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            position: relative;
+        }
+        .player:hover {
+            transform: scale(1.05);
+        }
+        .player img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 4px solid #ff6f61;
+        }
+        .winner img {
+            width: 150px;
+            height: 150px;
+            border: 6px solid gold;
+        }
+        .player h2 {
+            margin: 10px 0 5px;
+            font-size: 22px;
+        }
+        .player p {
+            font-weight: bold;
+        }
+        .winner {
+            background: gold;
+            transform: scale(1.1);
+            padding: 30px;
+        }
+        .player:nth-child(1) { height: 150px; }
+        .player:nth-child(2) { height: 200px; }
+        .player:nth-child(3) { height: 120px; }
+
+    </style>
+
+
+    <div class="leaderboard">
+        <div class="player" style="height: 180px;">
+            <h2>Player 2</h2>
+            <p>2nd Place</p>
+            <img src="Images and icons/Carrom.jpeg" alt="Player 2">
+        </div>
+
+        <div class="player winner" style="height: 250px;">
+            <h2>Player 1</h2>
+            <p>🏆 1st Place</p>
+            <img src="Images and icons/Nav logo.png" alt="Player 1">
+        </div>
+
+        <div class="player" style="height: 180px;">
+            <h2>Player 3</h2>
+            <p>3rd Place</p>
+            <img src="Images and icons/Kabbadi.jpeg" alt="Player 3">
+        </div>
+    </div>
+
+</body>
+</html>
+
+

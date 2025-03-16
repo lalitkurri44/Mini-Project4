@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Epic Notification</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        body {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .notification {
+            position: fixed;
+            top: -100px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 69, 0, 0.9);
+            color: white;
+            padding: 20px 40px;
+            font-size: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            opacity: 0;
+            transition: all 0.5s ease-in-out;
+        }
+        .notification.show {
+            top: 50px;
+            opacity: 1;
+        }
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            background: white;
+            color: red;
+            border: none;
+            font-weight: bold;
+            padding: 5px;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+        .trigger-btn {
+            background: white;
+            color: red;
+            padding: 10px 20px;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .trigger-btn:hover {
+            background: red;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <button class="trigger-btn" onclick="showNotification()">Show Notification</button>
+
+    <div class="notification" id="notification">
+        <button class="close-btn" onclick="hideNotification()">×</button>
+        🚀 **Breaking News!** You have unlocked **INSANE MODE**! 🔥
+    </div>
+
+    <script>
+        function showNotification() {
+            const notification = document.getElementById("notification");
+            notification.classList.add("show");
+
+            // Auto-hide after 3 seconds
+            setTimeout(() => {
+                hideNotification();
+            }, 3000);
+        }
+
+        function hideNotification() {
+            const notification = document.getElementById("notification");
+            notification.classList.remove("show");
+        }
+    </script>
+
+</body>
+</html>

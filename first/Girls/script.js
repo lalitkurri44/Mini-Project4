@@ -12,7 +12,7 @@ function login() {
 
    if (username === "admin" && password === "12234") {
        alert("Login successful!");
-       window.location.href = "../First/Main.html"; // Redirect to one.html
+       window.location.href = "../first/one.html"; // Redirect to one.html
    } else {
        alert("Invalid username or password!");
    }

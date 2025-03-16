@@ -236,7 +236,7 @@ body.sidebar-hidden .main-layout .sidebar{
     text-decoration: none;
     padding: 0.35rem 1.45rem;
     margin-bottom: 0.25rem;
-    background: var(white-color);
+    background: var(--white-color);
     color: var(--black-color);
     border-radius: 0.5rem;
     font-size: 0.938rem;

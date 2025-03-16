@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Slider</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap");
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Montserrat", sans-serif;
+      }
+
+
+  .payment-container {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+  }
+
+
+
+      .nav {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+        .btn {
+            background: white;
+            color: #333;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 0 5px;
+            transition: all 0.3s;
+        }
+        .btn:hover {
+            background: #333;
+            color: white;
+        }
+        .btn-container {
+            margin-top: 50px;
+        }
+        .crazy-btn {
+            padding: 12px 25px;
+            background: linear-gradient(45deg, #ff416c, #ff4b2b);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .crazy-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(255, 75, 43, 0.6);
+        }
+      .slider-container {
+        height: 100vh;
+        width: 100%;
+        overflow: hidden;
+      }
+      .swiper {
+        height: 100vh;
+      }
+      .swiper-slide {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        background-size: cover;
+        background-position: center;
+        padding-right: 50px;
+      }
+      .swiper-slide:nth-child(1) {
+        background-image: url("images/Badminton.jpeg");
+      }
+      .swiper-slide:nth-child(2) {
+        background-image: url("images/Chess.jpeg");
+      }
+      .swiper-slide:nth-child(3) {
+        background-image: url("images/Carrom.jpeg");
+      }
+      .swiper-slide:nth-child(4) {
+        background-image: url("images/Badminton.jpeg");
+      }
+      .swiper-slide:nth-child(5) {
+        background-image: url("images/Kho%20-%20Kho.jpeg");
+      }
+
+      /* .slide-content {
+            color: #fff;
+            text-align: left;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 40%;
+        }
+        .slide-title {
+            font-size: 2rem;
+            text-transform: uppercase;
+        }
+        .slide-description {
+            margin-top: 10px;
+        }
+        .slide-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            color: white;
+            border: 2px solid white;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .slide-button:hover {
+            background: white;
+            color: black;
+        } */
+    </style>
+  </head>
+  <body>
+
+    <div class="slider-container">
+      <div class="swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="nav">
+              <button class="btn" onclick="redirectTo('login.html')">Login</button>
+              <button class="btn" onclick="redirectTo('register.html')">Register</button>
+          </div>
+        
+          <div class="payment-container btn-container">
+              <button class="crazy-btn" onclick="redirectTo('payment.html')">Payment</button>
+          </div> 
+          </div>
+          <div class="swiper-slide">
+            <div class="nav">
+              <button class="btn" onclick="redirectTo('login.html')">Login</button>
+              <button class="btn" onclick="redirectTo('register.html')">Register</button>
+          </div>
+        
+          <div class="payment-container btn-container">
+              <button class="crazy-btn" onclick="redirectTo('payment.html')">Payment</button>
+          </div> 
+          </div>
+          <div class="swiper-slide">
+            <div class="nav">
+              <button class="btn" onclick="redirectTo('login.html')">Login</button>
+              <button class="btn" onclick="redirectTo('register.html')">Register</button>
+          </div>
+        
+          <div class="payment-container btn-container">
+              <button class="crazy-btn" onclick="redirectTo('payment.html')">Payment</button>
+          </div> 
+          </div>
+          <div class="swiper-slide">
+            <div class="nav">
+              <button class="btn" onclick="redirectTo('login.html')">Login</button>
+              <button class="btn" onclick="redirectTo('register.html')">Register</button>
+          </div>
+        
+          <div class="payment-container btn-container">
+              <button class="crazy-btn" onclick="redirectTo('payment.html')">Payment</button>
+          </div> 
+          </div>
+          <div class="swiper-slide">
+            <div class="nav">
+              <button class="btn" onclick="redirectTo('login.html')">Login</button>
+              <button class="btn" onclick="redirectTo('register.html')">Register</button>
+          </div>
+        
+          <div class="payment-container btn-container">
+              <button class="crazy-btn" onclick="redirectTo('payment.html')">Payment</button>
+          </div> 
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+      const swiper = new Swiper(".swiper", {
+        effect: "fade",
+        speed: 1300,
+        autoplay: { delay: 2500, disableOnInteraction: false },
+        loop: false, // Loop hataya taaki last slide ke baad first dikhe properly
+        on: {
+          slideChangeTransitionEnd: function () {
+            if (swiper.activeIndex === swiper.slides.length - 1) {
+              setTimeout(() => {
+                swiper.slideTo(0, 1000);
+              }, 2500);
+            }
+          },
+        },
+      });
+    </script>
+
+<script>
+  function redirectTo(page) {
+      window.location.href = page;
+  }
+</script>
+
+<script>
+  function redirectTo(page) {
+      window.location.href = page;
+  }
+</script>
+
+  </body>
+</html>
