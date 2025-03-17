@@ -313,21 +313,3 @@ body.sidebar-hidden .main-layout .sidebar{
     top: 50%;
     transform: translateY(-50%);
 } 
-
-/* Default Light Mode */
-body {
-    background-color: white;
-    color: black;
-    transition: all 0.3s ease;
-}
-
-/* Dark Mode */
-body.dark {
-    background-color: black;
-    color: white;
-}
-
-/* Ensure button image visibility */
-.nav-button.theme-button img {
-    pointer-events: none; /* Ensures image doesn't block button click */
-}
