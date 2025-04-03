@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Matches</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            text-align: center;
+            margin: 0;
+        }
+        h1 { margin: 20px; }
+        .match-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            padding: 20px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        .match-card {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            position: relative;
+        }
+        .status {
+            font-size: 14px;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 5px;
+            display: inline-block;
+            color: white;
+        }
+        .live { background: green; }
+        .finished { background: gray; }
+        .timer {
+            font-size: 16px;
+            font-weight: bold;
+            color: #d9534f;
+            margin-top: 5px;
+            display: none;
+        }
+        .players {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 10px 0;
+        }
+        .player {
+            text-align: center;
+        }
+        .player img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid transparent;
+        }
+        .winner img {
+            border: 3px solid green;
+        }
+        .winner-label {
+            color: green;
+            font-weight: bold;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1> Live Matches </h1>
+
+    <div class="match-container" id="matchContainer"></div>
+
+    <script>
+        let matches = 8;
+        let matchContainer = document.getElementById("matchContainer");
+
+        for (let i = 1; i <= matches; i++) {
+            matchContainer.innerHTML += `
+                <div class="match-card" id="match${i}">
+                    <p id="status${i}" class="status">Not Started</p>
+                    <div class="players">
+                        <div class="player" id="player${i}_1">
+                            <img src="https://via.placeholder.com/50" alt="Player 1">
+                            <p>Player A${i}</p>
+                            <p class="winner-label" id="winner${i}_1"></p>
+                        </div>
+                        <div class="player" id="player${i}_2">
+                            <img src="https://via.placeholder.com/50" alt="Player 2">
+                            <p>Player B${i}</p>
+                            <p class="winner-label" id="winner${i}_2"></p>
+                        </div>
+                    </div>
+                    <p class="timer" id="timer${i}">05:00</p>
+                </div>
+            `;
+        }
+    </script>
+
+</body>
+</html>

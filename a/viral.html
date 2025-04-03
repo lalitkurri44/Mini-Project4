@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Match Making</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            text-align: center;
+            margin: 0;
+        }
+        h1 { margin: 20px; }
+        .match-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            padding: 20px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        .match-card {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            position: relative;
+        }
+        .status {
+            font-size: 14px;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 5px;
+            display: inline-block;
+            color: white;
+        }
+        .live { background: green; }
+        .finished { background: gray; }
+        .timer {
+            font-size: 16px;
+            font-weight: bold;
+            color: #d9534f;
+            margin-top: 5px;
+            display: none;
+        }
+        .players {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 10px 0;
+        }
+        .player {
+            text-align: center;
+        }
+        .player img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid transparent;
+        }
+        .winner img {
+            border: 3px solid green;
+        }
+        .winner-label {
+            color: green;
+            font-weight: bold;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1> ADMIN PANEL</h1>
+    <div class="match-container">
+        <div class="match-card" id="match1">
+            <p id="status1" class="status">Not Started</p>
+            <div class="players">
+                <div class="player" id="player1_1">
+                    <img src="https://via.placeholder.com/50" alt="Player 1">
+                    <p>Player A1</p>
+                    <p class="winner-label" id="winner1_1"></p>
+                </div>
+                <div class="player" id="player1_2">
+                    <img src="https://via.placeholder.com/50" alt="Player 2">
+                    <p>Player B1</p>
+                    <p class="winner-label" id="winner1_2"></p>
+                </div>
+            </div>
+            <p class="timer" id="timer1">05:00</p>
+            <div class="admin-controls">
+                <button onclick="setLive(1)">Set Live</button>
+                <button onclick="setFinished(1)">Set Finished</button>
+                <br>
+                <label>Set Time (mins):</label>
+                <input type="number" id="customTimeInput1" min="1" max="30" value="5">
+                <button onclick="setCustomTime(1)">Set Time</button>
+                <br>
+                <label>Winner:</label>
+                <select id="winnerSelect1">
+                    <option value="none">None</option>
+                    <option value="1">Player A1</option>
+                    <option value="2">Player B1</option>
+                </select>
+                <button onclick="declareWinner(1)">Declare Winner</button>
+            </div>
+        </div>
+
+        <div class="match-card" id="match2">
+            <p id="status2" class="status">Not Started</p>
+            <div class="players">
+                <div class="player" id="player2_1">
+                    <img src="https://via.placeholder.com/50" alt="Player 1">
+                    <p>Player A2</p>
+                    <p class="winner-label" id="winner2_1"></p>
+                </div>
+                <div class="player" id="player2_2">
+                    <img src="https://via.placeholder.com/50" alt="Player 2">
+                    <p>Player B2</p>
+                    <p class="winner-label" id="winner2_2"></p>
+                </div>
+            </div>
+            <p class="timer" id="timer2">05:00</p>
+            <div class="admin-controls">
+                <button onclick="setLive(2)">Set Live</button>
+                <button onclick="setFinished(2)">Set Finished</button>
+                <br>
+                <label>Set Time (mins):</label>
+                <input type="number" id="customTimeInput2" min="1" max="30" value="5">
+                <button onclick="setCustomTime(2)">Set Time</button>
+                <br>
+                <label>Winner:</label>
+                <select id="winnerSelect2">
+                    <option value="none">None</option>
+                    <option value="1">Player A2</option>
+                    <option value="2">Player B2</option>
+                </select>
+                <button onclick="declareWinner(2)">Declare Winner</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
