@@ -331,3 +331,30 @@ body.dark {
 .nav-button.theme-button img {
     pointer-events: none; /* Ensures image doesn't block button click */
 }
+
+.search-container {
+    position: relative;
+    width: 300px;
+    margin: auto;
+    max-width: 550px;
+    height: 40px;
+    flex: 1;
+}
+
+.suggestions {
+    position: absolute;
+    width: 100%;
+    background: white;
+    border: 1px solid #ccc;
+    border-top: none;
+    max-height: 200px;
+    overflow-y: auto;
+    display: none;
+}
+.suggestions div {
+    padding: 10px;
+    cursor: pointer;
+}
+.suggestions div:hover {
+    background: #f0f0f0;
+}

@@ -49,4 +49,52 @@ menuButton.addEventListener("click", () => {
 //             localStorage.setItem("theme", "light");
 //         }
 //     });
-// });
+// });const sports = [
+    const sports = [
+        "Football (Boys)", "Football (Girls)", "Carrom (Boys)", "Carrom (Girls)",
+        "Cricket (Boys)", "Cricket (Girls)", "Badminton (Boys)", "Badminton (Girls)",
+        "Kabaddi (Boys)", "Kabaddi (Girls)", "Volleyball (Boys)", "Volleyball (Girls)",
+        "Khokho (Boys)", "Khokho (Girls)", "Marathon (Boys)", "Marathon (Girls)",
+        "Hockey (Boys)", "Hockey (Girls)", "Relay (Boys)", "Relay (Girls)",
+        "Tug of war (Boys)", "Tug of war (Girls)", "Chess (Boys)", "Chess (Girls)"
+      ];
+      
+      const searchInput = document.getElementById("search");
+      const suggestionsBox = document.getElementById("suggestions");
+      
+      searchInput.addEventListener("input", function () {
+        const query = this.value.trim().toLowerCase();
+        suggestionsBox.innerHTML = ""; // 🔄 Clear old suggestions first
+      
+        if (query) {
+          const filtered = [...new Set(sports.filter(sport =>
+            sport.toLowerCase().includes(query)
+          ))]; // ✅ Remove duplicates just in case
+      
+          if (filtered.length) {
+            suggestionsBox.style.display = "block";
+            filtered.forEach(sport => {
+              const div = document.createElement("div");
+              div.textContent = sport;
+              div.classList.add("suggestion-item");
+              div.addEventListener("click", function () {
+                searchInput.value = sport;
+                suggestionsBox.innerHTML = "";
+                suggestionsBox.style.display = "none";
+              });
+              suggestionsBox.appendChild(div);
+            });
+          } else {
+            suggestionsBox.style.display = "none";
+          }
+        } else {
+          suggestionsBox.style.display = "none";
+        }
+      });
+      
+      document.addEventListener("click", function (e) {
+        if (!searchInput.contains(e.target) && !suggestionsBox.contains(e.target)) {
+          suggestionsBox.style.display = "none";
+        }
+      });
+      

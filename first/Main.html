@@ -31,12 +31,17 @@
 
           <div class="nav-section nav-center">
             <form action="#" class="search-form">
-              <input
-                type="search"
-                placeholder="Search "
-                required
-                class="search-input"
-              />
+              <div class="search-container">
+                <input
+                  type="search"
+                  id="search"
+                  placeholder="Search for a sport..."
+                  required
+                  class="search-input"
+                />
+                <div class="suggestions" id="suggestions"></div>
+              </div>
+              
               <button class="nav-button search-button">
                 <img
                   width="25px"
