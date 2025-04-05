@@ -1,0 +1,82 @@
+/* Make body scrollable if content is tall */
+body {
+        font-family: Arial, sans-serif;
+        background-color: #f3f3f3;
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        overflow-y: auto; /* <-- makes page scrollable */
+    }
+    
+    .container {
+        background: #fff;
+        padding: 30px 40px;
+        border-radius: 10px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        width: 100%;
+        max-width: 600px;
+        margin: 40px 20px; /* give breathing space */
+    }
+    
+    h2 {
+        text-align: center;
+        margin-bottom: 25px;
+        color: #333;
+    }
+    
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .form-row {
+        display: flex;
+        gap: 20px;
+        flex-wrap: nowrap; /* ensure aaju-baju stays */
+        overflow-x: auto; /* horizontal scroll if needed */
+    }
+    
+    .input-group {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        min-width: 0; /* important for flex children */
+    }
+    
+    .input-group label {
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+    
+    .input-group input {
+        padding: 8px 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    
+    .full-width {
+        width: 100%;
+    }
+    
+    .btn-container {
+        text-align: center;
+    }
+    
+    button {
+        background-color: #007bff;
+        color: white;
+        padding: 10px 30px;
+        font-size: 16px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+    
+    button:hover {
+        background-color: #0056b3;
+    }
+    
