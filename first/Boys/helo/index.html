@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>QR Payment Form</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="form-box">
+    <img src="qr-sample.png" alt="QR Code" class="qr-img">
+    <form action="submit.php" method="POST">
+      <input type="text" name="user_name" placeholder="Aapka Naam" required>
+      <input type="text" name="upi_id" placeholder="UPI ID" required>
+      <!-- Correct input field -->
+<input type="text" name="payment_method" placeholder="Payment App (e.g., Google Pay, Paytm)" required>
+
+      <select name="payment_method" required>
+        <option disabled selected>Payment App</option>
+        <option value="Google Pay">Google Pay</option>
+        <option value="PhonePe">PhonePe</option>
+        <option value="Paytm">Paytm</option>
+        <option value="BHIM">BHIM</option>
+        <option value="Other">Other</option>
+      </select>
+      <input type="text" name="game" placeholder="Game Name" required>
+      <input type="number" name="amount" placeholder="Amount ₹" required>
+      <input type="tel" name="contact_number" placeholder="Contact Number" required>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</body>
+</html>

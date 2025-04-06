@@ -1,0 +1,62 @@
+body {
+  font-family: sans-serif;
+  background: #f2f2f2;
+  padding: 20px;
+  margin: 0;
+}
+.form-box {
+  max-width: 400px;
+  margin: auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px #ccc;
+  text-align: center;
+}
+.qr-img {
+  width: 200px;
+  height: auto;
+  margin-bottom: 15px;
+}
+input, select, button {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #0056b3;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+th, td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+th {
+  background: #007bff;
+  color: white;
+}
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+td.Pending {
+  color: orange;
+}
+td.Approved {
+  color: green;
+}
+.actions a {
+  margin-right: 8px;
+}
