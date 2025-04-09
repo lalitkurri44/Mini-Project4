@@ -97,4 +97,53 @@ menuButton.addEventListener("click", () => {
           suggestionsBox.style.display = "none";
         }
       });
+
+
+
+
+        const sports = [
+            "Football (Boys)", "Football (Girls)", "Carrom (Boys)", "Carrom (Girls)",
+            "Cricket (Boys)", "Cricket (Girls)", "Badminton (Boys)", "Badminton (Girls)",
+            "Kabaddi (Boys)", "Kabaddi (Girls)", "Volleyball (Boys)", "Volleyball (Girls)",
+            "Khokho (Boys)", "Khokho (Girls)", "Marathon (Boys)", "Marathon (Girls)",
+            "Hockey (Boys)", "Hockey (Girls)", "Relay (Boys)", "Relay (Girls)",
+            "Tug of war (Boys)", "Tug of war (Girls)", "Chess (Boys)", "Chess (Girls)"
+        ];
+        
+        const searchInput = document.getElementById("search");
+        const suggestionsBox = document.getElementById("suggestions");
+        
+        searchInput.addEventListener("input", function() {
+            const query = this.value.toLowerCase();
+            suggestionsBox.innerHTML = "";
+            
+            if (query) {
+                const filteredSports = sports.filter(sport => sport.toLowerCase().includes(query));
+                
+                if (filteredSports.length) {
+                    suggestionsBox.style.display = "block";
+                    filteredSports.forEach(sport => {
+                        const div = document.createElement("div");
+                        div.textContent = sport;
+                        div.addEventListener("click", function() {
+                            searchInput.value = sport;
+                            suggestionsBox.style.display = "none";
+                        });
+                        suggestionsBox.appendChild(div);
+                    });
+                } else {
+                    suggestionsBox.style.display = "none";
+                }
+            } else {
+                suggestionsBox.style.display = "none";
+            }
+        });
+        
+        document.addEventListener("click", function(e) {
+            if (!searchInput.contains(e.target) && !suggestionsBox.contains(e.target)) {
+                suggestionsBox.style.display = "none";
+            }
+        });
+    
+
       
