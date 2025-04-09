@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Image Slider</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap");
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Montserrat", sans-serif;
+    }
+
+    .slider-container {
+      height: 100vh;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .swiper {
+      height: 100vh;
+    }
+
+    .swiper-slide {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .swiper-slide:nth-child(1) { background-image: url("images/Badminton.jpeg"); }
+    .swiper-slide:nth-child(2) { background-image: url("images/Chess.jpeg"); }
+    .swiper-slide:nth-child(3) { background-image: url("images/Carrom.jpeg"); }
+    .swiper-slide:nth-child(4) { background-image: url("images/Badminton.jpeg"); }
+    .swiper-slide:nth-child(5) { background-image: url("images/Chess.jpeg"); }
+
+    .payment-container {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .crazy-btn {
+      padding: 12px 25px;
+      background: linear-gradient(45deg, #ff416c, #ff4b2b);
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 18px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .crazy-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 15px rgba(255, 75, 43, 0.6);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="slider-container">
+    <div class="swiper">
+      <div class="swiper-wrapper">
+
+        <!-- Slide 1 -->
+        <div class="swiper-slide">
+          <div class="payment-container">
+            <button class="crazy-btn" onclick="redirectTo('../helo/index.html')">Payment</button>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="swiper-slide">
+          <div class="payment-container">
+            <button class="crazy-btn" onclick="redirectTo('../helo/index.html')">Payment</button>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="swiper-slide">
+          <div class="payment-container">
+            <button class="crazy-btn" onclick="redirectTo('../helo/index.html')">Payment</button>
+          </div>
+        </div>
+
+        <!-- Slide 4 -->
+        <div class="swiper-slide">
+          <div class="payment-container">
+            <button class="crazy-btn" onclick="redirectTo('../helo/index.html')">Payment</button>
+          </div>
+        </div>
+
+        <!-- Slide 5 -->
+        <div class="swiper-slide">
+          <div class="payment-container">
+            <button class="crazy-btn" onclick="redirectTo('../helo/index.html')">Payment</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    const swiper = new Swiper(".swiper", {
+      effect: "fade",
+      speed: 1300,
+      autoplay: { delay: 2500, disableOnInteraction: false },
+      loop: false,
+      on: {
+        slideChangeTransitionEnd: function () {
+          if (swiper.activeIndex === swiper.slides.length - 1) {
+            setTimeout(() => {
+              swiper.slideTo(0, 1000);
+            }, 2500);
+          }
+        },
+      },
+    });
+
+    function redirectTo(page) {
+      window.location.href = page;
+    }
+  </script>
+
+</body>
+</html>

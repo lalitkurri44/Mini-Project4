@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Let's Go Button</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #c3f0ca, #a8e6cf);
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .btn-container {
+      text-align: center;
+    }
+
+    .letsgo-btn {
+      padding: 15px 40px;
+      font-size: 20px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .letsgo-btn:hover {
+      background-color: #218838;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="btn-container">
+    <button class="letsgo-btn" onclick="goNext()">Let's Go 🚀</button>
+  </div>
+
+  <script>
+    function goNext() {
+      // Redirect to a file inside another folder which is outside current one
+      window.location.href = "../cr/register.php";
+    }
+  </script>
+
+</body>
+</html>
