@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FIRST PAGE</title>
     <link rel="stylesheet" href="style.css" />
+    
   </head>
   <body>
     <!-- Full Layout  -->
@@ -34,7 +35,7 @@
               <div class="search-container">
                 <input
                   type="search"
-                  id="search"
+                  id="searchInput" 
                   placeholder="Search for a sport..."
                   required
                   class="search-input"
@@ -163,10 +164,14 @@
         
 
 
-        <!-- base  -->
+        <!-- BOYS GAMES -->
         <div class="video-list">
           <!-- carrom game  -->
+<<<<<<< HEAD
+          <a href="Boys/Carrom/cr/carrom.html"   id="carrom-boy" class="video-card">
+=======
           <a href="Boys/Carrom/cr/carrom.html" class="video-card">
+>>>>>>> c91beb994bc1665a512f35fadafe1fa5b99fd204
             <div class="thumbnail-container">
               <img src="Images and icons/Carrom.jpeg" alt="" class="thumbnail">
             </div>
@@ -302,12 +307,14 @@
             </div>
           </a>
         </div>
+
+        <!-- GIRLS GAMES -->
         <div class="video-list">
 
         <!-- Girls  -->
 
           <!-- carrom game  -->
-          <a href="Girls/Carrom.html" class="video-card">
+          <a href="Girls/Carrom.html" id="carrom-girl"  class="video-card">
             <div class="thumbnail-container">
               <img src="Images and icons/Carrom.jpeg" alt="" class="thumbnail">
             </div>
@@ -468,5 +475,81 @@
 
     <script src="script.js"></script>
 
+    <script>
+      const searchInput = document.getElementById("searchInput");
+    const suggestionsBox = document.getElementById("suggestions");
+
+    const games = [
+  { name: "Carrom - Boys", id: "carrom-boy" },
+  { name: "Carrom - Girls", id: "carrom-girl" },
+  { name: "Chess - Boys", id: "chess-boy" },
+  { name: "Chess - Girls", id: "chess-girl" },
+  { name: "Badminton - Boys", id: "badminton-boy" },
+  { name: "Badminton - Girls", id: "badminton-girl" },
+  { name: "Box Cricket - Boys", id: "box-cricket-boy" },
+  { name: "Box Cricket - Girls", id: "box-cricket-girl" },
+  { name: "100 m Race - Boys", id: "100m-race-boy" },
+  { name: "100 m Race - Girls", id: "100m-race-girl" },
+  { name: "Football - Boys", id: "football-boy" },
+  { name: "Football - Girls", id: "football-girl" },
+  { name: "Hockey - Boys", id: "hockey-boy" },
+  { name: "Hockey - Girls", id: "hockey-girl" },
+  { name: "Kho Kho - Boys", id: "kho-kho-boy" },
+  { name: "Kho Kho - Girls", id: "kho-kho-girl" },
+  { name: "Kabaddi - Boys", id: "kabaddi-boy" },
+  { name: "Kabaddi - Girls", id: "kabaddi-girl" },
+  { name: "Tug of War - Boys", id: "tug-of-war-boy" },
+  { name: "Tug of War - Girls", id: "tug-of-war-girl" },
+  { name: "Relay - Boys", id: "relay-boy" },
+  { name: "Relay - Girls", id: "relay-girl" },
+  { name: "Volley Ball - Boys", id: "volley-ball-boy" },
+  { name: "Volley Ball - Girls", id: "volley-ball-girl" }
+];
+
+    // Show suggestions
+    searchInput.addEventListener("input", function () {
+      const query = this.value.toLowerCase().trim();
+      suggestionsBox.innerHTML = "";
+
+      if (query === "") {
+        document.querySelectorAll(".video-section").forEach(section => {
+          section.style.display = "block";
+        });
+        return;
+      }
+
+      // Filter cards (existing functionality)
+      document.querySelectorAll(".video-section").forEach(section => {
+        section.style.display = "none";
+      });
+
+      games.forEach(game => {
+        if (game.name.toLowerCase().includes(query)) {
+          const section = document.getElementById(game.id);
+          if (section) section.style.display = "block";
+
+          // Create suggestion
+          const div = document.createElement("div");
+          div.textContent = game.name;
+          div.onclick = () => {
+            document.getElementById(game.id).scrollIntoView({ behavior: "smooth" });
+            searchInput.value = "";
+            suggestionsBox.innerHTML = "";
+            // Show all again after scroll
+            document.querySelectorAll(".video-section").forEach(sec => sec.style.display = "block");
+          };
+          suggestionsBox.appendChild(div);
+        }
+      });
+    });
+
+    // Hide suggestions on click outside
+    document.addEventListener("click", function (e) {
+      if (!searchInput.contains(e.target) && !suggestionsBox.contains(e.target)) {
+        suggestionsBox.innerHTML = "";
+      }
+    });
+    </script>
+   
   </body>
 </html>

@@ -50,47 +50,37 @@ menuButton.addEventListener("click", () => {
 //         }
 //     });
 // });const sports = [
-    const sports = [
-        "Football (Boys)", "Football (Girls)", "Carrom (Boys)", "Carrom (Girls)",
-        "Cricket (Boys)", "Cricket (Girls)", "Badminton (Boys)", "Badminton (Girls)",
-        "Kabaddi (Boys)", "Kabaddi (Girls)", "Volleyball (Boys)", "Volleyball (Girls)",
-        "Khokho (Boys)", "Khokho (Girls)", "Marathon (Boys)", "Marathon (Girls)",
-        "Hockey (Boys)", "Hockey (Girls)", "Relay (Boys)", "Relay (Girls)",
-        "Tug of war (Boys)", "Tug of war (Girls)", "Chess (Boys)", "Chess (Girls)"
-      ];
-      
-      const searchInput = document.getElementById("search");
-      const suggestionsBox = document.getElementById("suggestions");
-      
-      searchInput.addEventListener("input", function () {
-        const query = this.value.trim().toLowerCase();
-        suggestionsBox.innerHTML = ""; // 🔄 Clear old suggestions first
-      
-        if (query) {
-          const filtered = [...new Set(sports.filter(sport =>
-            sport.toLowerCase().includes(query)
-          ))]; // ✅ Remove duplicates just in case
-      
-          if (filtered.length) {
-            suggestionsBox.style.display = "block";
-            filtered.forEach(sport => {
-              const div = document.createElement("div");
-              div.textContent = sport;
-              div.classList.add("suggestion-item");
-              div.addEventListener("click", function () {
-                searchInput.value = sport;
-                suggestionsBox.innerHTML = "";
-                suggestionsBox.style.display = "none";
-              });
-              suggestionsBox.appendChild(div);
-            });
-          } else {
-            suggestionsBox.style.display = "none";
-          }
+
+
+const wrapper = document.querySelector('.context-wrapper');
+
+document.querySelectorAll('.category-button').forEach(button => {
+  button.addEventListener('click', () => {
+    const category = button.innerText.trim().toLowerCase().replace(/\s+/g, '');
+
+    // Button active state
+    document.querySelectorAll('.category-button').forEach(btn => btn.classList.remove('active'));
+    button.classList.add('active');
+
+    // Apply class for grid change
+    if (category === 'all') {
+      wrapper.classList.remove('filtered-view');
+      document.querySelectorAll('.video-card').forEach(card => card.classList.remove('hidden'));
+    } else {
+      wrapper.classList.add('filtered-view');
+      document.querySelectorAll('.video-card').forEach(card => {
+        const id = card.id.toLowerCase();
+        if (id.includes(category)) {
+          card.classList.remove('hidden');
         } else {
-          suggestionsBox.style.display = "none";
+          card.classList.add('hidden');
         }
       });
+<<<<<<< HEAD
+    }
+  });
+});
+=======
       
       document.addEventListener("click", function (e) {
         if (!searchInput.contains(e.target) && !suggestionsBox.contains(e.target)) {
@@ -137,3 +127,4 @@ menuButton.addEventListener("click", () => {
     }
   
       
+>>>>>>> c91beb994bc1665a512f35fadafe1fa5b99fd204
