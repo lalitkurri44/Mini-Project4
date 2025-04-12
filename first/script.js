@@ -76,6 +76,55 @@ document.querySelectorAll('.category-button').forEach(button => {
           card.classList.add('hidden');
         }
       });
+<<<<<<< HEAD
     }
   });
 });
+=======
+      
+      document.addEventListener("click", function (e) {
+        if (!searchInput.contains(e.target) && !suggestionsBox.contains(e.target)) {
+          suggestionsBox.style.display = "none";
+        }
+      });
+
+
+
+
+
+//game box//
+
+
+ const gameGrid = document.getElementById("gameGrid");
+    const gameIdInput = document.getElementById("gameIdInput");
+
+    for (let i = 1; i <= 24; i++) {
+      // Add to dropdown
+      const option = document.createElement("option");
+      option.value = "g" + i;
+      option.textContent = "g" + i;
+      gameIdInput.appendChild(option);
+
+      // Add game box
+      const box = document.createElement("div");
+      box.className = "game-box";
+      box.id = "g" + i;
+      box.textContent = "Game g" + i;
+      gameGrid.appendChild(box);
+    }
+
+    function searchGame() {
+      const selectedId = gameIdInput.value;
+      const boxes = document.querySelectorAll(".game-box");
+
+      boxes.forEach(box => {
+        if (box.id === selectedId) {
+          box.classList.remove("hidden");
+        } else {
+          box.classList.add("hidden");
+        }
+      });
+    }
+  
+      
+>>>>>>> c91beb994bc1665a512f35fadafe1fa5b99fd204
