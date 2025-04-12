@@ -101,6 +101,7 @@
     display: flex;
     width: 100%;
     justify-content: center;
+    visibility: hidden;
 }
 
 .navbar .search-form{
@@ -340,76 +341,21 @@ body.dark {
     height: 40px;
     flex: 1;
 }
-/* Suggestions Dropdown */
+
 .suggestions {
     position: absolute;
+    width: 100%;
     background: white;
     border: 1px solid #ccc;
+    border-top: none;
     max-height: 200px;
     overflow-y: auto;
-    width: 100%;
-    z-index: 1000;
-    border-radius: 4px;
-  }
-  
-  .suggestion-item {
-    padding: 8px 12px;
-    cursor: pointer;
-  }
-  
-  .suggestion-item:hover {
-    background-color: #f0f0f0;
-  }
-  
- 
-
-  .hidden {
-    /* visibility: none; */
     display: none;
-  }
-  .context-wrapper.filtered-view .video-list {
-    grid-template-columns: repeat(4, 1fr);
-  }
-
-  .filtered .video-card:not(.show) {
-    display: none !important;
-  }
-  
-  @media (max-width: 1200px) {
-    .context-wrapper.filtered-view .video-list {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
-  
-  @media (max-width: 900px) {
-    .context-wrapper.filtered-view .video-list {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-  
-  @media (max-width: 600px) {
-    .context-wrapper.filtered-view .video-list {
-      grid-template-columns: repeat(1, 1fr);
-    }
-  }
-
-  #suggestions {
-    position: absolute;
-    top: 50px;
-    right: 88px;
-    background: white;
-    color: black;
-    width: 320px;
-    border-radius: 0 0 4px 4px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    z-index: 10;
 }
-  #suggestions div {
-    padding: 8px;
+.suggestions div {
+    padding: 10px;
     cursor: pointer;
-  }
-  #suggestions div:hover {
-    background-color: #eee;
-  }
-
-  
+}
+.suggestions div:hover {
+    background: #f0f0f0;
+}
