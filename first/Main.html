@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FIRST PAGE</title>
     <link rel="stylesheet" href="style.css" />
+    
   </head>
   <body>
     <!-- Full Layout  -->
@@ -34,7 +35,7 @@
               <div class="search-container">
                 <input
                   type="search"
-                  id="search"
+                  id="searchInput" 
                   placeholder="Search for a sport..."
                   required
                   class="search-input"
@@ -166,7 +167,7 @@
         <!-- base  -->
         <div class="video-list">
           <!-- carrom game  -->
-          <a href="Boys/Carrom/cr/carrom.html" class="video-card">
+          <a href="Boys/Carrom/cr/carrom.html"   id="carrom-boy" class="video-card">
             <div class="thumbnail-container">
               <img src="Images and icons/Carrom.jpeg" alt="" class="thumbnail">
             </div>
@@ -307,7 +308,7 @@
         <!-- Girls  -->
 
           <!-- carrom game  -->
-          <a href="Girls/Carrom.html" class="video-card">
+          <a href="Girls/Carrom.html" id="carrom-girl"  class="video-card">
             <div class="thumbnail-container">
               <img src="Images and icons/Carrom.jpeg" alt="" class="thumbnail">
             </div>
@@ -445,28 +446,53 @@
           </a>
         </div>
       </div>
-
-
-
-
-
-
-<div class="search-container">
-    <h2>Enter Game ID</h2>
-    <select id="gameIdInput">
-      <option value="">-- Select Game ID --</option>
-    </select>
-    <button onclick="searchGame()">Search Game</button>
-  </div>
-
-  <div class="game-grid" id="gameGrid">
-    <!-- Game boxes will be added by JavaScript -->
-  </div>
-
       </main>
     </div>
 
     <script src="script.js"></script>
 
+    <script>
+      const games = [
+        "Carrom",
+        "Chess",
+        "Kabaddi",
+        "Kho Kho",
+        "Tug of War"
+        // Add more game names here
+      ];
+  
+      const input = document.getElementById("searchInput");
+  
+      input.addEventListener("input", function () {
+        const query = this.value.toLowerCase().trim();
+  
+        // Hide all sections first
+        document.querySelectorAll(".video-section").forEach(section => {
+          section.style.display = "none";
+        });
+  
+        // Show matched sections
+        games.forEach(game => {
+          if (game.toLowerCase().includes(query)) {
+            const boyId = ${game.toLowerCase().replace(/\s/g, "-")}-boy;
+            const girlId = ${game.toLowerCase().replace(/\s/g, "-")}-girl;
+  
+            const boyBox = document.getElementById(boyId);
+            const girlBox = document.getElementById(girlId);
+  
+            if (boyBox) boyBox.style.display = "block";
+            if (girlBox) girlBox.style.display = "block";
+          }
+        });
+  
+        // If query is empty, show everything
+        if (query === "") {
+          document.querySelectorAll(".video-section").forEach(section => {
+            section.style.display = "block";
+          });
+        }
+      });
+    </script>
+   
   </body>
 </html>
