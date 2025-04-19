@@ -164,14 +164,10 @@
         
 
 
-        <!-- BOYS GAMES -->
+        <!-- base  -->
         <div class="video-list">
           <!-- carrom game  -->
-<<<<<<< HEAD
           <a href="Boys/Carrom/cr/carrom.html"   id="carrom-boy" class="video-card">
-=======
-          <a href="Boys/Carrom/cr/carrom.html" class="video-card">
->>>>>>> c91beb994bc1665a512f35fadafe1fa5b99fd204
             <div class="thumbnail-container">
               <img src="Images and icons/Carrom.jpeg" alt="" class="thumbnail">
             </div>
@@ -307,8 +303,6 @@
             </div>
           </a>
         </div>
-
-        <!-- GIRLS GAMES -->
         <div class="video-list">
 
         <!-- Girls  -->
@@ -452,103 +446,52 @@
           </a>
         </div>
       </div>
-
-
-
-
-
-
-<div class="search-container">
-    <h2>Enter Game ID</h2>
-    <select id="gameIdInput">
-      <option value="">-- Select Game ID --</option>
-    </select>
-    <button onclick="searchGame()">Search Game</button>
-  </div>
-
-  <div class="game-grid" id="gameGrid">
-    <!-- Game boxes will be added by JavaScript -->
-  </div>
-
       </main>
     </div>
 
     <script src="script.js"></script>
 
     <script>
-      const searchInput = document.getElementById("searchInput");
-    const suggestionsBox = document.getElementById("suggestions");
-
-    const games = [
-  { name: "Carrom - Boys", id: "carrom-boy" },
-  { name: "Carrom - Girls", id: "carrom-girl" },
-  { name: "Chess - Boys", id: "chess-boy" },
-  { name: "Chess - Girls", id: "chess-girl" },
-  { name: "Badminton - Boys", id: "badminton-boy" },
-  { name: "Badminton - Girls", id: "badminton-girl" },
-  { name: "Box Cricket - Boys", id: "box-cricket-boy" },
-  { name: "Box Cricket - Girls", id: "box-cricket-girl" },
-  { name: "100 m Race - Boys", id: "100m-race-boy" },
-  { name: "100 m Race - Girls", id: "100m-race-girl" },
-  { name: "Football - Boys", id: "football-boy" },
-  { name: "Football - Girls", id: "football-girl" },
-  { name: "Hockey - Boys", id: "hockey-boy" },
-  { name: "Hockey - Girls", id: "hockey-girl" },
-  { name: "Kho Kho - Boys", id: "kho-kho-boy" },
-  { name: "Kho Kho - Girls", id: "kho-kho-girl" },
-  { name: "Kabaddi - Boys", id: "kabaddi-boy" },
-  { name: "Kabaddi - Girls", id: "kabaddi-girl" },
-  { name: "Tug of War - Boys", id: "tug-of-war-boy" },
-  { name: "Tug of War - Girls", id: "tug-of-war-girl" },
-  { name: "Relay - Boys", id: "relay-boy" },
-  { name: "Relay - Girls", id: "relay-girl" },
-  { name: "Volley Ball - Boys", id: "volley-ball-boy" },
-  { name: "Volley Ball - Girls", id: "volley-ball-girl" }
-];
-
-    // Show suggestions
-    searchInput.addEventListener("input", function () {
-      const query = this.value.toLowerCase().trim();
-      suggestionsBox.innerHTML = "";
-
-      if (query === "") {
+      const games = [
+        "Carrom",
+        "Chess",
+        "Kabaddi",
+        "Kho Kho",
+        "Tug of War"
+        // Add more game names here
+      ];
+  
+      const input = document.getElementById("searchInput");
+  
+      input.addEventListener("input", function () {
+        const query = this.value.toLowerCase().trim();
+  
+        // Hide all sections first
         document.querySelectorAll(".video-section").forEach(section => {
-          section.style.display = "block";
+          section.style.display = "none";
         });
-        return;
-      }
-
-      // Filter cards (existing functionality)
-      document.querySelectorAll(".video-section").forEach(section => {
-        section.style.display = "none";
-      });
-
-      games.forEach(game => {
-        if (game.name.toLowerCase().includes(query)) {
-          const section = document.getElementById(game.id);
-          if (section) section.style.display = "block";
-
-          // Create suggestion
-          const div = document.createElement("div");
-          div.textContent = game.name;
-          div.onclick = () => {
-            document.getElementById(game.id).scrollIntoView({ behavior: "smooth" });
-            searchInput.value = "";
-            suggestionsBox.innerHTML = "";
-            // Show all again after scroll
-            document.querySelectorAll(".video-section").forEach(sec => sec.style.display = "block");
-          };
-          suggestionsBox.appendChild(div);
+  
+        // Show matched sections
+        games.forEach(game => {
+          if (game.toLowerCase().includes(query)) {
+            const boyId = ${game.toLowerCase().replace(/\s/g, "-")}-boy;
+            const girlId = ${game.toLowerCase().replace(/\s/g, "-")}-girl;
+  
+            const boyBox = document.getElementById(boyId);
+            const girlBox = document.getElementById(girlId);
+  
+            if (boyBox) boyBox.style.display = "block";
+            if (girlBox) girlBox.style.display = "block";
+          }
+        });
+  
+        // If query is empty, show everything
+        if (query === "") {
+          document.querySelectorAll(".video-section").forEach(section => {
+            section.style.display = "block";
+          });
         }
       });
-    });
-
-    // Hide suggestions on click outside
-    document.addEventListener("click", function (e) {
-      if (!searchInput.contains(e.target) && !suggestionsBox.contains(e.target)) {
-        suggestionsBox.innerHTML = "";
-      }
-    });
     </script>
    
   </body>
