@@ -36,7 +36,7 @@ if (isset($_POST['login'])) {
         exit();
     }
 }
-?>
+
 
 
 
@@ -120,3 +120,5 @@ if (isset($_POST['register'])) {
         echo "<script>alert('Database error'); window.location.href='register.php';</script>";
     }
 }
+
+?>

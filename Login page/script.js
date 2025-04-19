@@ -10,13 +10,22 @@ function login() {
    let username = document.getElementById("username").value;
    let password = document.getElementById("password").value;
 
-   if (username === "admin" && password === "12234") {
-       alert("Login successful!");
-       window.location.href = "../First/Main.html"; // Redirect to one.html
+   // Check if the entered username and password are correct
+   if (username === "admin") {
+       if (password === "12234") {
+           alert("Login successful! Redirecting to user page...");
+           window.location.href = "../First/Main.html"; // Redirect to user page
+       } else if (password === "3214") {
+           alert("Login successful! Redirecting to admin panel...");
+           window.location.href = "../admin/admin.html"; // Redirect to admin panel page
+       } else {
+           alert("Invalid password!");
+       }
    } else {
-       alert("Invalid username or password!");
+       alert("Invalid username!");
    }
 }
+
 
 
 

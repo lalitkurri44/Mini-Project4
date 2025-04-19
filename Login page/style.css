@@ -115,6 +115,7 @@
       text-decoration: none;
       font-size: 1.2rem;
       font-weight: 500;
+      visibility: hidden;
       /* text-decoration: none; */
   }
   
