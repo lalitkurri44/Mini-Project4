@@ -27,8 +27,6 @@ function login() {
 }
 
 
-
-
 // Show menu
 menuBtn.addEventListener("click", () => {
    navbarMenu.classList.toggle("show-menu");

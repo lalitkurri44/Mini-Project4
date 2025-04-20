@@ -19,7 +19,9 @@ if (isset($_POST['login'])) {
             $_SESSION['profile'] = $result_fetch['profile']; // profile image
             $_SESSION['login_time'] = date("Y-m-d H:i:s"); // login time
 
-            header("Location: welcome.php"); // Redirect to welcome page
+            header("Location: ../Redirect2/Main.php");
+            exit();
+            // Redirect to welcome page
             exit(); // Stop further script execution
         } else {
             echo "<script>
