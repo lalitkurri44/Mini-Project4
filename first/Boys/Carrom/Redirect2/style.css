@@ -31,6 +31,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 0.5rem 1rem;
+    
 }
 
 .navbar :where(.user-image , .logo-image)
@@ -59,7 +60,7 @@
 
 .navbar .nav-logo .logo-text{
     font-size: 1.25rem;
-    color: var(--black-color);
+    color: var(--white-color);
 
 }
 

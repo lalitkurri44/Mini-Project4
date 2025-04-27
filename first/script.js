@@ -50,90 +50,22 @@ menuButton.addEventListener("click", () => {
 //         }
 //     });
 // });const sports = [
-    const sports = [
-        "Football (Boys)", "Football (Girls)", "Carrom (Boys)", "Carrom (Girls)",
-        "Cricket (Boys)", "Cricket (Girls)", "Badminton (Boys)", "Badminton (Girls)",
-        "Kabaddi (Boys)", "Kabaddi (Girls)", "Volleyball (Boys)", "Volleyball (Girls)",
-        "Khokho (Boys)", "Khokho (Girls)", "Marathon (Boys)", "Marathon (Girls)",
-        "Hockey (Boys)", "Hockey (Girls)", "Relay (Boys)", "Relay (Girls)",
-        "Tug of war (Boys)", "Tug of war (Girls)", "Chess (Boys)", "Chess (Girls)"
-      ];
-      
-      const searchInput = document.getElementById("search");
-      const suggestionsBox = document.getElementById("suggestions");
-      
-      searchInput.addEventListener("input", function () {
-        const query = this.value.trim().toLowerCase();
-        suggestionsBox.innerHTML = ""; // 🔄 Clear old suggestions first
-      
-        if (query) {
-          const filtered = [...new Set(sports.filter(sport =>
-            sport.toLowerCase().includes(query)
-          ))]; // ✅ Remove duplicates just in case
-      
-          if (filtered.length) {
-            suggestionsBox.style.display = "block";
-            filtered.forEach(sport => {
-              const div = document.createElement("div");
-              div.textContent = sport;
-              div.classList.add("suggestion-item");
-              div.addEventListener("click", function () {
-                searchInput.value = sport;
-                suggestionsBox.innerHTML = "";
-                suggestionsBox.style.display = "none";
-              });
-              suggestionsBox.appendChild(div);
-            });
-          } else {
-            suggestionsBox.style.display = "none";
-          }
-        } else {
-          suggestionsBox.style.display = "none";
-        }
+
+// search buttton
+
+
+  const searchButton = document.querySelector(".search-button");
+
+  searchButton.addEventListener("click", (event) => {
+    event.preventDefault(); // important: form submit rokna
+    fetch('http://127.0.0.1:5000/listen')
+      .then(response => response.json())
+      .then(data => {
+        console.log("Recognized text:", data.text);
+        alert("You said: " + data.text);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        alert("Python server not running!");
       });
-      
-      document.addEventListener("click", function (e) {
-        if (!searchInput.contains(e.target) && !suggestionsBox.contains(e.target)) {
-          suggestionsBox.style.display = "none";
-        }
-      });
-
-
-
-
-
-//game box//
-
-
- const gameGrid = document.getElementById("gameGrid");
-    const gameIdInput = document.getElementById("gameIdInput");
-
-    for (let i = 1; i <= 24; i++) {
-      // Add to dropdown
-      const option = document.createElement("option");
-      option.value = "g" + i;
-      option.textContent = "g" + i;
-      gameIdInput.appendChild(option);
-
-      // Add game box
-      const box = document.createElement("div");
-      box.className = "game-box";
-      box.id = "g" + i;
-      box.textContent = "Game g" + i;
-      gameGrid.appendChild(box);
-    }
-
-    function searchGame() {
-      const selectedId = gameIdInput.value;
-      const boxes = document.querySelectorAll(".game-box");
-
-      boxes.forEach(box => {
-        if (box.id === selectedId) {
-          box.classList.remove("hidden");
-        } else {
-          box.classList.add("hidden");
-        }
-      });
-    }
-  
-      
+  });

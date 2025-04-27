@@ -31,27 +31,35 @@
           </div>
 
           <div class="nav-section nav-center">
+
+
             <form action="#" class="search-form">
-              <div class="search-container">
-                <input
-                  type="search"
-                  id="searchInput" 
-                  placeholder="Search for a sport..."
-                  required
-                  class="search-input"
-                />
-                <div class="suggestions" id="suggestions"></div>
-              </div>
-              
-              <button class="nav-button search-button">
-                <img
-                  width="25px"
-                  height="27px"
-                  src="Images and icons/Search_bar-removebg-preview.png"
-                  alt="search"
-                />
-              </button>
-            </form>
+    <div class="search-container">
+      <input
+        type="search"
+        id="searchInput"
+        placeholder="Search for a sport..."
+        required
+        class="search-input"
+        onkeyup="showSuggestions(this.value)"
+        autocomplete="off"
+      />
+      <div class="suggestions" id="suggestions"></div>
+    </div>
+    <button class="nav-button search-button" type="submit">
+      <img
+        width="25px"
+        height="27px"
+        src="Images and icons/Search_bar-removebg-preview.png"
+        alt="search"
+      />
+    </button>
+  </form>
+</div>
+  <div>
+    
+
+
             <button class="nav-button mic-button">
               <img
                 width="25px"
@@ -165,7 +173,7 @@
 
 
         <!-- base  -->
-        <div class="video-list">
+        <div class="video-list" id="cardContainer">
           <!-- carrom game  -->
           <a href="Boys/Carrom/cr/carrom.html"   id="carrom-boy" class="video-card">
             <div class="thumbnail-container">
@@ -303,7 +311,8 @@
             </div>
           </a>
         </div>
-        <div class="video-list">
+
+        <div class="video-list" id="cardContainer">
 
         <!-- Girls  -->
 
@@ -452,47 +461,64 @@
     <script src="script.js"></script>
 
     <script>
-      const games = [
-        "Carrom",
-        "Chess",
-        "Kabaddi",
-        "Kho Kho",
-        "Tug of War"
-        // Add more game names here
-      ];
-  
-      const input = document.getElementById("searchInput");
-  
-      input.addEventListener("input", function () {
-        const query = this.value.toLowerCase().trim();
-  
-        // Hide all sections first
-        document.querySelectorAll(".video-section").forEach(section => {
-          section.style.display = "none";
-        });
-  
-        // Show matched sections
-        games.forEach(game => {
-          if (game.toLowerCase().includes(query)) {
-            const boyId = ${game.toLowerCase().replace(/\s/g, "-")}-boy;
-            const girlId = ${game.toLowerCase().replace(/\s/g, "-")}-girl;
-  
-            const boyBox = document.getElementById(boyId);
-            const girlBox = document.getElementById(girlId);
-  
-            if (boyBox) boyBox.style.display = "block";
-            if (girlBox) girlBox.style.display = "block";
+     
+    const suggestionsData = [
+      { name: "Carrom (Boys)", id: "carrom-boy" },
+      { name: "Chess (Boys)", id: "chess-boy" },
+      { name: "Badminton (Boys)", id: "badminton-boy" },
+      { name: "Box Cricket (Boys)", id: "boxcricket-boy" },
+      { name: "100 m Race (Boys)", id: "race-boy" },
+      { name: "Football (Boys)", id: "football-boy" },
+      { name: "Hockey (Boys)", id: "hockey-boy" },
+      { name: "Kho-Kho (Boys)", id: "kho-boy" },
+      { name: "Kabbadi (Boys)", id: "kabbadi-boy" },
+      { name: "Tug of War (Boys)", id: "tug-boy" },
+      { name: "Relay (Boys)", id: "relay-boy" },
+      { name: "Volleyball (Boys)", id: "volleyball-boy" },
+
+      { name: "Carrom (Girls)", id: "carrom-girl" },
+      { name: "Chess (Girls)", id: "chess-girl" },
+      { name: "Badminton (Girls)", id: "badminton-girl" },
+      { name: "Box Cricket (Girls)", id: "boxcricket-girl" },
+      { name: "100 m Race (Girls)", id: "race-girl" },
+      { name: "Football (Girls)", id: "football-girl" },
+      { name: "Hockey (Girls)", id: "hockey-girl" },
+      { name: "Kho-Kho (Girls)", id: "kho-girl" },
+      { name: "Kabbadi (Girls)", id: "kabbadi-girl" },
+      { name: "Tug of War (Girls)", id: "tug-girl" },
+      { name: "Relay (Girls)", id: "relay-girl" },
+      { name: "Volleyball (Girls)", id: "volleyball-girl" },
+    ];
+
+    function showSuggestions(query) {
+      const suggestionsBox = document.getElementById("suggestions");
+      suggestionsBox.innerHTML = "";
+
+      if (!query.trim()) return;
+
+      const filtered = suggestionsData.filter(game =>
+        game.name.toLowerCase().includes(query.toLowerCase())
+      );
+
+      filtered.forEach(game => {
+        const div = document.createElement("div");
+        div.classList.add("suggestion-item");
+        div.innerText = game.name;
+        div.onclick = () => {
+          const element = document.getElementById(game.id);
+          if (element) {
+            element.scrollIntoView({ behavior: "smooth" });
           }
-        });
-  
-        // If query is empty, show everything
-        if (query === "") {
-          document.querySelectorAll(".video-section").forEach(section => {
-            section.style.display = "block";
-          });
-        }
+          suggestionsBox.innerHTML = "";
+          document.getElementById("searchInput").value = "";
+        };
+        suggestionsBox.appendChild(div);
       });
+    }
     </script>
+    
+
+  
    
   </body>
 </html>

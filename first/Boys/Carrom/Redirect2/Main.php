@@ -99,6 +99,114 @@ $user = mysqli_fetch_assoc($result);
     height: 3px;
     width: 100%;
   }
+
+
+  .navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(90deg,rgb(255, 255, 255),rgb(255, 255, 255)); /* Deep blue gradient */
+  padding: 15px 30px;
+  box-shadow: 0 4px 15px rgb(255, 255, 255);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.nav-logo .logo-text {
+  font-size: 30px;
+  font-weight: 900;
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  text-shadow: 1px 1px 4px rgb(255, 255, 255);
+  letter-spacing: 2px;
+}
+
+.nav-section {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.nav-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.nav-button:hover {
+  transform: scale(1.1);
+}
+
+.search-input {
+  padding: 7px 12px;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+}
+
+.search-container {
+  position: relative;
+}
+
+.suggestions {
+  position: absolute;
+  background: white;
+  border-radius: 5px;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  box-shadow: 0 4px 8px rgb(255, 255, 255);
+  z-index: 10;
+}
+
+.logout-btn {
+  background-color: #e74c3c;
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.logout-btn:hover {
+  background-color: #c0392b;
+}
+
+.mic-button img,
+.search-button img {
+  width: 25px;
+  height: 25px;
+}
+/* Make all navbar text white and bold */
+
+
+/* Logo text specifically styled bigger */
+.nav-logo .logo-text {
+  font-size: 32px;
+  font-weight: 900;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 5px rgb(255, 255, 255);
+}
+
+
+.nav-logo .logo-text {
+  font-size: 28px;
+  font-weight: 800;
+  font-family: 'Poppins', 'Segoe UI', sans-serif;
+  color: #ffffff;
+  text-shadow: 1px 1px 2px rgb(255, 255, 255);
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+}
+
+
   </style>
 
 </head>
@@ -132,11 +240,7 @@ $user = mysqli_fetch_assoc($result);
         <!-- Right section of the navbar -->
         <div class="nav-section nav-right">
 
-          <?php if (!empty($user['profile_image'])): ?>
-            <img src="Uploaded Images/<?php echo $user['profile_image']; ?>" alt="User image" class="user-image" />
-          <?php else: ?>
-            <img src="Images and icons/Nav logo.png" alt="User image" class="user-image" />
-          <?php endif; ?>
+          
 
           <form action="logout.php" method="post">
             <button type="submit" class="logout-btn">Logout</button>
@@ -151,9 +255,10 @@ $user = mysqli_fetch_assoc($result);
         <div class="link-container">
           <div class="link-section">
             <h4 class="section-title">Matches</h4>
-            <a href="Redirect/indoor.html" class="link-item" target="_blank">Match Making</a>
-            <a href="Redirect/outdoor.html" class="link-item" target="_blank">All Table entries</a>
-          </div>
+            <a href="project/user/matches.php" class="link-item" target="_blank">Match Making</a>
+
+            <a href="crud/index.php" class="link-item" target="_blank">Table Entries</a>
+
           <div class="section-separator"></div>
 
           <div class="link-section">

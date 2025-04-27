@@ -85,15 +85,15 @@
 }
 
 .navbar .search-form .search-input{
-    width: 100%;
+    width: 198%;
     height: 100%;
-    padding: 0 1rem;
+    padding: 8px 2rem;
     border : 1px solid var(--border-color);
     outline: none;
     border-radius: 3.2rem 0 0 3.2rem;
     font-size: 1rem;
 
-}
+} 
 
 
 
@@ -206,6 +206,7 @@
     border-radius: 0 3.2rem 3.2rem 0;
     border-left: 0;
     border : 1px solid var(--border-color);
+    margin-right: 35px;
 }
 
 header, .category-list {
@@ -332,12 +333,53 @@ body.dark {
     pointer-events: none; /* Ensures image doesn't block button click */
 }
 
-.search-container {
+
+  .search-form {
     position: relative;
     width: 300px;
-    margin: auto;
-    max-width: 550px;
-    height: 40px;
-    flex: 1;
-}
+  }
 
+  .search-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+  }
+
+  .suggestions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-top: none;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 999;
+  }
+
+  .suggestion-item {
+    padding: 10px;
+    cursor: pointer;
+  }
+
+  .suggestion-item:hover {
+    background-color: #f0f0f0;
+  }
+
+  .search-button {
+    position: absolute;
+    right: -45px;
+    top: 0;
+    bottom: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  /* Example sections to scroll to */
+  .game-section {
+    margin-top: 100px;
+    padding: 50px;
+    background: #eee;
+  }
