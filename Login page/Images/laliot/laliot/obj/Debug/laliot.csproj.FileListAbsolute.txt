@@ -1,0 +1,8 @@
+C:\Users\HP\source\repos\laliot\laliot\bin\Debug\laliot.exe.config
+C:\Users\HP\source\repos\laliot\laliot\bin\Debug\laliot.exe
+C:\Users\HP\source\repos\laliot\laliot\bin\Debug\laliot.pdb
+C:\Users\HP\source\repos\laliot\laliot\obj\Debug\laliot.csproj.AssemblyReference.cache
+C:\Users\HP\source\repos\laliot\laliot\obj\Debug\laliot.csproj.CoreCompileInputs.cache
+C:\Users\HP\source\repos\laliot\laliot\obj\Debug\laliot.exe
+C:\Users\HP\source\repos\laliot\laliot\obj\Debug\laliot.pdb
+C:\Users\HP\source\repos\laliot\laliot\obj\Debug\laliot.exe.config
